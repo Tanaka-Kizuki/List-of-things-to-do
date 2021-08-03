@@ -6,10 +6,13 @@
 //
 
 import UIKit
-
+import Firebase
 
 class CreateViewController: UIViewController {
-
+    @IBOutlet weak var doTextField: UITextField!
+    @IBOutlet weak var nearTextField: UITextField!
+    @IBOutlet weak var urlTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
