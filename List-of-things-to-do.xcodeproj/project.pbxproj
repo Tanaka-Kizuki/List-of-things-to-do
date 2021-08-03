@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		D5B9CE0F26B96E0F007FCF15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B9CE0D26B96E0F007FCF15 /* Main.storyboard */; };
 		D5B9CE1126B96E18007FCF15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B9CE1026B96E18007FCF15 /* Assets.xcassets */; };
 		D5B9CE1426B96E18007FCF15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B9CE1226B96E18007FCF15 /* LaunchScreen.storyboard */; };
+		D5B9CE1C26B97250007FCF15 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5B9CE1B26B9724F007FCF15 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D5B9CE1026B96E18007FCF15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5B9CE1326B96E18007FCF15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5B9CE1526B96E18007FCF15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5B9CE1B26B9724F007FCF15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,6 @@
 				9480422A066CBC5CE86D4FC6 /* Pods-List-of-things-to-do.debug.xcconfig */,
 				9F5670887D0D7D9F39E5D5D5 /* Pods-List-of-things-to-do.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -88,6 +89,7 @@
 				D5B9CE1026B96E18007FCF15 /* Assets.xcassets */,
 				D5B9CE1226B96E18007FCF15 /* LaunchScreen.storyboard */,
 				D5B9CE1526B96E18007FCF15 /* Info.plist */,
+				D5B9CE1B26B9724F007FCF15 /* GoogleService-Info.plist */,
 			);
 			path = "List-of-things-to-do";
 			sourceTree = "<group>";
@@ -153,6 +155,7 @@
 			files = (
 				D5B9CE1426B96E18007FCF15 /* LaunchScreen.storyboard in Resources */,
 				D5B9CE1126B96E18007FCF15 /* Assets.xcassets in Resources */,
+				D5B9CE1C26B97250007FCF15 /* GoogleService-Info.plist in Resources */,
 				D5B9CE0F26B96E0F007FCF15 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
