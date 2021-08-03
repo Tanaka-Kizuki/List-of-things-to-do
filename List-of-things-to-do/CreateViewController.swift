@@ -7,15 +7,22 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
-class CreateViewController: UIViewController {
+var list:[List] = []
+var db = Firestore.firestore().collection("doList")
+
+
+class CreateViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var doTextField: UITextField!
     @IBOutlet weak var nearTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        doTextField.delegate = self
+        nearTextField.delegate = self
+        urlTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -29,5 +36,22 @@ class CreateViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    //textFieldでreturnキーを押したらキーボードが閉じる
+    func textFieldShouldReturn(_ textField:UITextField) ->Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func save(_ sender: Any) {
+        if doTextField.text != nil {
+            db.document().setData(["name":doTextField.text,"near":nearTextField.text,"url":urlTextField.text])
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
