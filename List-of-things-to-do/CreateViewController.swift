@@ -9,14 +9,13 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
-var list:[List] = []
-var db = Firestore.firestore().collection("doList")
-
 
 class CreateViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var doTextField: UITextField!
     @IBOutlet weak var nearTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
+    
+    var db = Firestore.firestore().collection("doList")
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct List {
+struct ListModel {
     let name:String
     let near:String
     let url:String
