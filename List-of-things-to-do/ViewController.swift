@@ -35,7 +35,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath)
-        tableView.rowHeight = 200
+        tableView.rowHeight = tableView.frame.size.height / 9
         let listLabel = cell.contentView.viewWithTag(1) as! UILabel
         listLabel.numberOfLines = 0
         print(indexPath)

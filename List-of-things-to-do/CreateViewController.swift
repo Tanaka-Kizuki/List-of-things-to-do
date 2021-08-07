@@ -13,15 +13,14 @@ import FirebaseFirestore
 class CreateViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var doTextField: UITextField!
     @IBOutlet weak var nearTextField: UITextField!
-    @IBOutlet weak var urlTextField: UITextField!
     
     var db = Firestore.firestore().collection("doList")
+    var tag = "やりたいこと"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         doTextField.delegate = self
         nearTextField.delegate = self
-        urlTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -44,7 +43,7 @@ class CreateViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func save(_ sender: Any) {
         if doTextField.text != nil {
-            db.document().setData(["name":doTextField.text,"near":nearTextField.text,"url":urlTextField.text])
+            db.document().setData(["name":doTextField.text,"near":nearTextField.text,)
         }
         dismiss(animated: true, completion: nil)
     }
