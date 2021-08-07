@@ -13,6 +13,8 @@ import FirebaseFirestore
 class CreateViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var doTextField: UITextField!
     @IBOutlet weak var nearTextField: UITextField!
+    @IBOutlet weak var DoButton: UIButton!
+    @IBOutlet weak var cafeButton: UIButton!
     
     var db = Firestore.firestore().collection("doList")
     var tag = "やりたいこと"
@@ -22,6 +24,32 @@ class CreateViewController: UIViewController,UITextFieldDelegate {
         doTextField.delegate = self
         nearTextField.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func doAction(_ sender: Any) {
+        checkTag()
+    }
+    
+    @IBAction func cafeAction(_ sender: Any) {
+        checkTag()
+    }
+    
+    func checkTag() {
+        let check = UIImage(named:"checkbox")
+        let checked = UIImage(named:"checkedbox")
+        //もし変数tagが"やりたいこと"であれば、
+        if tag == "やりたいこと" {
+        //doButtonの画像をcheckに変えて、cafeButtonをcheckedに変える
+            DoButton.setImage(check,for: UIControl.State.normal)
+            cafeButton.setImage(checked,for: UIControl.State.normal)
+            self.tag = "カフェ"
+        //もし変数tagが"カフェ"であれば、
+        } else {
+            //doButtonの画像をcheckedに変えて、cafeButtonをcheckに変える
+            DoButton.setImage(checked,for: UIControl.State.normal)
+            cafeButton.setImage(check,for: UIControl.State.normal)
+            self.tag = "やりたいこと"
+        }
     }
     
 
@@ -41,13 +69,15 @@ class CreateViewController: UIViewController,UITextFieldDelegate {
         return true
     }
     
+    //リストの内容をFirebaseStoreに保存して、メイン画面へ遷移
     @IBAction func save(_ sender: Any) {
         if doTextField.text != nil {
-            db.document().setData(["name":doTextField.text,"near":nearTextField.text,)
+            db.document().setData(["name":doTextField.text as Any,"near":nearTextField.text,"tag":self.tag,])
         }
         dismiss(animated: true, completion: nil)
     }
     
+    //メイン画面への遷移
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

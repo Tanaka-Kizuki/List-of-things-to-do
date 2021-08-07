@@ -150,11 +150,17 @@
                                 <rect key="frame" x="28" y="407" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="checkbox"/>
+                                <connections>
+                                    <action selector="cafeAction:" destination="Cjd-pC-dtC" eventType="touchUpInside" id="qUV-8K-WoL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pl-sV-cqI">
                                 <rect key="frame" x="28" y="344" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="checkbox"/>
+                                <state key="normal" image="checkedbox"/>
+                                <connections>
+                                    <action selector="doAction:" destination="Cjd-pC-dtC" eventType="touchUpInside" id="lPz-Qd-qnX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I3U-SY-eBk"/>
@@ -162,6 +168,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="GB3-zw-PbD"/>
                     <connections>
+                        <outlet property="DoButton" destination="8Pl-sV-cqI" id="lTp-7p-p08"/>
+                        <outlet property="cafeButton" destination="yfV-FG-GM8" id="91q-qH-qEW"/>
                         <outlet property="doTextField" destination="iEH-aq-Qal" id="S5r-zX-5ZA"/>
                         <outlet property="nearTextField" destination="6ky-aV-tX2" id="LnI-ld-3Ri"/>
                     </connections>
@@ -173,6 +181,7 @@
     </scenes>
     <resources>
         <image name="checkbox" width="512" height="512"/>
+        <image name="checkedbox" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
