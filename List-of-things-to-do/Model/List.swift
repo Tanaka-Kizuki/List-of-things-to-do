@@ -10,5 +10,5 @@ import Foundation
 struct ListModel {
     let name:String
     let near:String
-    let url:String
+    let tag:String
 }

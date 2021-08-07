@@ -56,8 +56,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 
                 for doc in snapShotDoc {
                     let data = doc.data()
-                    if let name = data["name"] as? String,let near = data["near"] as? String,let url = data["url"] as? String {
-                        let listModels = ListModel(name:name,near:near,url:url)
+                    if let name = data["name"] as? String,let near = data["near"] as? String,let tag = data["tag"] as? String {
+                        let listModels = ListModel(name:name,near:near,tag:tag)
                         self.listModel.append(listModels)
                     }
                     
