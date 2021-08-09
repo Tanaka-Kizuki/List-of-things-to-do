@@ -50,17 +50,14 @@ class CafeListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         return cell
     }
     
+    //fireStoreからデータを取得し、listModelへ値を代入
     func loadData() {
         db.collection("doList").addSnapshotListener {(snapShot, error) in
-            
             self.listModel = []
-
             if error != nil {
                 return
             }
-            
             if let snapShotDoc = snapShot?.documents {
-                
                 for doc in snapShotDoc {
                     let data = doc.data()
                     if let name = data["name"] as? String,let near = data["near"] as? String,let tag = data["tag"] as? String {
@@ -69,13 +66,16 @@ class CafeListViewController: UIViewController,UITableViewDelegate,UITableViewDa
                             self.listModel.append(listModels)
                         }
                     }
-                    
                 }
                 self.cafeTableView.reloadData()
-                
             }
-            
         }
+    }
+    
+    //セルをタップした時に詳細画面へ遷移
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "goDetail", sender: nil)
     }
 
 

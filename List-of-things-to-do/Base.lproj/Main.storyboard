@@ -52,6 +52,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ud5-9S-rJN" kind="show" identifier="goDetail" id="OhH-eI-C1D"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -222,6 +225,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ud5-9S-rJN" kind="show" identifier="goDetail" id="iTN-c8-Sl6"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -257,9 +263,9 @@
         <!--View Controller-->
         <scene sceneID="MeC-sL-qbX">
             <objects>
-                <viewController id="ud5-9S-rJN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ud5-9S-rJN" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Znp-be-cNn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="38v-CO-4Lq">
@@ -272,7 +278,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KeQ-uS-Wf8">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="603" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="＜" id="IV2-eD-rOS"/>
@@ -293,6 +299,7 @@
                         <viewLayoutGuide key="safeArea" id="O46-G1-qxf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="SFb-KL-fSC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KVh-9K-5FZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -300,7 +307,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PC0-tj-VkW"/>
+        <segue reference="OhH-eI-C1D"/>
+        <segue reference="iJf-ip-Vht"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkbox" width="512" height="512"/>
