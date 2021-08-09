@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  List-of-things-to-do
@@ -8,10 +9,12 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import SegementSlide
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class CafeListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,SegementSlideContentScrollViewDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet weak var cafeTableView: UITableView!
     
     var listModel:[ListModel] = []
     var db = Firestore.firestore()
@@ -19,13 +22,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        tableView.delegate = self
-        tableView.dataSource = self
+        cafeTableView.delegate = self
+        cafeTableView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(animated)
         loadData()
+    }
+    
+    @objc var scrollView: UIScrollView {
+        return cafeTableView
     }
     
     
@@ -35,7 +42,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath)
-        tableView.rowHeight = tableView.frame.size.height / 9
+        tableView.rowHeight = tableView.frame.size.height / 15
         let listLabel = cell.contentView.viewWithTag(1) as! UILabel
         listLabel.numberOfLines = 0
         print(indexPath)
@@ -57,12 +64,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 for doc in snapShotDoc {
                     let data = doc.data()
                     if let name = data["name"] as? String,let near = data["near"] as? String,let tag = data["tag"] as? String {
-                        let listModels = ListModel(name:name,near:near,tag:tag)
-                        self.listModel.append(listModels)
+                        if tag == "カフェ" {
+                            let listModels = ListModel(name:name,near:near,tag:tag)
+                            self.listModel.append(listModels)
+                        }
                     }
                     
                 }
-                self.tableView.reloadData()
+                self.cafeTableView.reloadData()
                 
             }
             
