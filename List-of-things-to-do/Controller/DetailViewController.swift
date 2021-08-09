@@ -13,13 +13,25 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var listNameLabel: UILabel!
     @IBOutlet weak var webView: WKWebView!
     
+    //メイン画面よりリスト名が代入される
     var listName = String()
+    
+    //検索用URL
+    let baseUrl = "https://www.google.co.jp/search?q="
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         listNameLabel.text = listName
         // Do any additional setup after loading the view.
+        openUrl()
+    }
+    
+    func openUrl() {
+        let Url = String(baseUrl + listName.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!)
+        let searchUrl = URL(string:Url)
+        let request = NSURLRequest(url: searchUrl!)
+        webView.load(request as URLRequest)
     }
     
 
