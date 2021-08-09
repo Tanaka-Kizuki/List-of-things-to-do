@@ -9,5 +9,6 @@ target 'List-of-things-to-do' do
 pod 'Firebase'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
+pod 'SegementSlide'
 
 end

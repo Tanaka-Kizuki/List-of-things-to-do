@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9307B7A119490930CF70393AB529AAC1"
-               BuildableName = "leveldb-library.framework"
-               BlueprintName = "leveldb-library"
+               BlueprintIdentifier = "055411E7F4239B4CB7D549A671F771E0"
+               BuildableName = "SegementSlide.framework"
+               BlueprintName = "SegementSlide"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
