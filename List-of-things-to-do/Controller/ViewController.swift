@@ -16,6 +16,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     var listModel:[ListModel] = []
     var db = Firestore.firestore()
+    var selectedIndexPath = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,8 +75,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //セルをタップした時に詳細画面へ遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //タップの選択を解除
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "goDetail", sender: nil)
+        //画面遷移
+        performSegue(withIdentifier: "goDetail", sender: indexPath.row)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailVC = segue.destination as? DetailViewController
+        if let index = sender as? Int {
+            selectedIndexPath = index
+        }
+        detailVC?.listName = listModel[selectedIndexPath].name
     }
 
     

@@ -19,6 +19,7 @@
 		D5B9CE2126B97EEC007FCF15 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9CE2026B97EEC007FCF15 /* List.swift */; };
 		D5B9CE2526C0B7B1007FCF15 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9CE2426C0B7B1007FCF15 /* SlideViewController.swift */; };
 		D5B9CE2826C0EB12007FCF15 /* CafeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9CE2726C0EB12007FCF15 /* CafeListViewController.swift */; };
+		D5B9CE2A26C12344007FCF15 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9CE2926C12344007FCF15 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D5B9CE2026B97EEC007FCF15 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		D5B9CE2426C0B7B1007FCF15 /* SlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
 		D5B9CE2726C0EB12007FCF15 /* CafeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeListViewController.swift; sourceTree = "<group>"; };
+		D5B9CE2926C12344007FCF15 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				D5B9CE2426C0B7B1007FCF15 /* SlideViewController.swift */,
 				D5B9CE1D26B97CFC007FCF15 /* CreateViewController.swift */,
 				D5B9CE2726C0EB12007FCF15 /* CafeListViewController.swift */,
+				D5B9CE2926C12344007FCF15 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				D5B9CE0826B96E0F007FCF15 /* AppDelegate.swift in Sources */,
 				D5B9CE2126B97EEC007FCF15 /* List.swift in Sources */,
 				D5B9CE0A26B96E0F007FCF15 /* SceneDelegate.swift in Sources */,
+				D5B9CE2A26C12344007FCF15 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

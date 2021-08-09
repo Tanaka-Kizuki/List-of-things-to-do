@@ -52,9 +52,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="ud5-9S-rJN" kind="show" identifier="goDetail" id="OhH-eI-C1D"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -81,6 +78,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="SSN-ua-1ok" id="zPz-7R-ZBv"/>
+                        <segue destination="ud5-9S-rJN" kind="show" identifier="goDetail" id="RLZ-np-Zvl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -194,7 +192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAh-Ld-F6Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="927.20000000000005" y="392.65367316341832"/>
+            <point key="canvasLocation" x="1343" y="359"/>
         </scene>
         <!--Cafe List View Controller-->
         <scene sceneID="9y0-Qd-JqX">
@@ -225,9 +223,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="ud5-9S-rJN" kind="show" identifier="goDetail" id="iTN-c8-Sl6"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -254,16 +249,17 @@
                     </view>
                     <connections>
                         <outlet property="cafeTableView" destination="3kO-wg-Muj" id="ax2-QV-VlQ"/>
+                        <segue destination="ud5-9S-rJN" kind="show" identifier="goDetail" id="JwV-1I-cSg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wp-HE-42g" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="463" y="-658"/>
+            <point key="canvasLocation" x="519" y="-663"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="MeC-sL-qbX">
             <objects>
-                <viewController storyboardIdentifier="DetailsScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ud5-9S-rJN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ud5-9S-rJN" customClass="DetailViewController" customModule="List_of_things_to_do" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Znp-be-cNn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -300,6 +296,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="SFb-KL-fSC"/>
+                    <connections>
+                        <outlet property="listNameLabel" destination="ZkK-kF-bNI" id="7yF-4Q-2X2"/>
+                        <outlet property="webView" destination="38v-CO-4Lq" id="8Fc-kI-X4O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KVh-9K-5FZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -307,7 +307,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OhH-eI-C1D"/>
+        <segue reference="RLZ-np-Zvl"/>
         <segue reference="iJf-ip-Vht"/>
     </inferredMetricsTieBreakers>
     <resources>

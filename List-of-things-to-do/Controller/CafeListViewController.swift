@@ -18,6 +18,7 @@ class CafeListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     var listModel:[ListModel] = []
     var db = Firestore.firestore()
+    var selectedIndexPath = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +77,14 @@ class CafeListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "goDetail", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailVC = segue.destination as? DetailViewController
+        if let index = sender as? Int {
+            selectedIndexPath = index
+        }
+        detailVC?.listName = listModel[selectedIndexPath].name
     }
 
 
