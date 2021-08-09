@@ -17,6 +17,8 @@
 		D5B9CE1C26B97250007FCF15 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5B9CE1B26B9724F007FCF15 /* GoogleService-Info.plist */; };
 		D5B9CE1E26B97CFC007FCF15 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9CE1D26B97CFC007FCF15 /* CreateViewController.swift */; };
 		D5B9CE2126B97EEC007FCF15 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9CE2026B97EEC007FCF15 /* List.swift */; };
+		D5B9CE2526C0B7B1007FCF15 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9CE2426C0B7B1007FCF15 /* SlideViewController.swift */; };
+		D5B9CE2826C0EB12007FCF15 /* CafeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9CE2726C0EB12007FCF15 /* CafeListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		D5B9CE1B26B9724F007FCF15 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D5B9CE1D26B97CFC007FCF15 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		D5B9CE2026B97EEC007FCF15 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		D5B9CE2426C0B7B1007FCF15 /* SlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
+		D5B9CE2726C0EB12007FCF15 /* CafeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,12 +90,11 @@
 		D5B9CE0626B96E0F007FCF15 /* List-of-things-to-do */ = {
 			isa = PBXGroup;
 			children = (
+				D5B9CE2626C0C499007FCF15 /* Controller */,
 				D5B9CE1F26B97ED0007FCF15 /* Model */,
 				D5B9CE0726B96E0F007FCF15 /* AppDelegate.swift */,
 				D5B9CE0926B96E0F007FCF15 /* SceneDelegate.swift */,
-				D5B9CE0B26B96E0F007FCF15 /* ViewController.swift */,
 				D5B9CE0D26B96E0F007FCF15 /* Main.storyboard */,
-				D5B9CE1D26B97CFC007FCF15 /* CreateViewController.swift */,
 				D5B9CE1026B96E18007FCF15 /* Assets.xcassets */,
 				D5B9CE1226B96E18007FCF15 /* LaunchScreen.storyboard */,
 				D5B9CE1526B96E18007FCF15 /* Info.plist */,
@@ -106,6 +109,17 @@
 				D5B9CE2026B97EEC007FCF15 /* List.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D5B9CE2626C0C499007FCF15 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D5B9CE0B26B96E0F007FCF15 /* ViewController.swift */,
+				D5B9CE2426C0B7B1007FCF15 /* SlideViewController.swift */,
+				D5B9CE1D26B97CFC007FCF15 /* CreateViewController.swift */,
+				D5B9CE2726C0EB12007FCF15 /* CafeListViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +239,8 @@
 			files = (
 				D5B9CE1E26B97CFC007FCF15 /* CreateViewController.swift in Sources */,
 				D5B9CE0C26B96E0F007FCF15 /* ViewController.swift in Sources */,
+				D5B9CE2826C0EB12007FCF15 /* CafeListViewController.swift in Sources */,
+				D5B9CE2526C0B7B1007FCF15 /* SlideViewController.swift in Sources */,
 				D5B9CE0826B96E0F007FCF15 /* AppDelegate.swift in Sources */,
 				D5B9CE2126B97EEC007FCF15 /* List.swift in Sources */,
 				D5B9CE0A26B96E0F007FCF15 /* SceneDelegate.swift in Sources */,
