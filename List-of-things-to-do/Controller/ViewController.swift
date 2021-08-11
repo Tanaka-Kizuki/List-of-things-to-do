@@ -46,11 +46,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath)
         tableView.rowHeight = tableView.frame.size.height / 15
         let listLabel = cell.contentView.viewWithTag(1) as! UILabel
-        let cellTextField = cell.contentView.viewWithTag(2) as! UITextField
-        cellTextField.delegate = self
         listLabel.numberOfLines = 0
         listLabel.text = "\(self.listModel[indexPath.row].name)"
+        
+        let cellTextField = UITextField()
         cellTextField.tag = indexPath.row
+        cellTextField.frame = CGRect(x:233, y:0, width:135, height: 38)
+        cellTextField.delegate = self
+        cell.addSubview(cellTextField)
         return cell
     }
     
@@ -100,7 +103,29 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print(datePickerLabel)
+        let listName = listModel[textField.tag].name
+        
+        var updateList = db.collection("doList")
+            .whereField("name", isEqualTo:listName)
+            .getDocuments(completion: {
+                (querySnapshot,error) in
+                if error != nil {
+                    return
+                } else {
+                    let id = querySnapshot?.documents.first?.documentID  // 結果のドキュメントIDをとる
+                    print(id)
+                    let document = Firestore.firestore().collection("doList").document(id!) // IDと一致する書き換えできるドキュメントをとる
+                    document.updateData([
+                        "done": self.datePickerLabel // 行ったことあるフラグをTrueにする
+                    ]) { err in
+                        if let err = err { // エラーハンドリング
+                            print("Error updating document: \(err)")
+                        } else { // 書き換え成功ハンドリング
+                            print("Update successfully!")
+                        }
+                    }
+                }
+            })
     }
     
     func datePickerlaod(textField:UITextField) {
