@@ -10,13 +10,16 @@ import Firebase
 import FirebaseFirestore
 import SegementSlide
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,SegementSlideContentScrollViewDelegate {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,SegementSlideContentScrollViewDelegate,UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     var listModel:[ListModel] = []
     var db = Firestore.firestore()
     var selectedIndexPath = Int()
+    
+    let datePicker = UIDatePicker()
+    var datePickerLabel = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +46,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath)
         tableView.rowHeight = tableView.frame.size.height / 15
         let listLabel = cell.contentView.viewWithTag(1) as! UILabel
+        let cellTextField = cell.contentView.viewWithTag(2) as! UITextField
+        cellTextField.delegate = self
         listLabel.numberOfLines = 0
-        print(indexPath)
-        
         listLabel.text = "\(self.listModel[indexPath.row].name)"
+        cellTextField.tag = indexPath.row
         return cell
     }
     
@@ -88,7 +92,47 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         detailVC?.listName = listModel[selectedIndexPath].name
     }
-
     
+    //テキストフィールドを選択した時
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        //datePickerのロード
+        datePickerlaod(textField: textField)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print(datePickerLabel)
+    }
+    
+    func datePickerlaod(textField:UITextField) {
+        //スタイルをドラムロールへ
+        datePicker.preferredDatePickerStyle = .wheels
+        // DatePickerModeをDate(日付)に設定
+        datePicker.datePickerMode = .date
+        // DatePickerを日本語化
+        datePicker.locale = NSLocale(localeIdentifier: "ja_JP") as Locale
+        // textFieldのinputViewにdatepickerを設定
+        textField.inputView = datePicker
+        // UIToolbarを設定
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        // Doneボタンを設定(押下時doneClickedが起動)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneClicked))
+        // Doneボタンを追加
+        toolbar.setItems([doneButton], animated: true)
+        // FieldにToolbarを追加
+        textField.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneClicked() {
+        let dateFormatter = DateFormatter()
+        // 持ってくるデータのフォーマットを設定
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale    = NSLocale(localeIdentifier: "ja_JP") as Locale?
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        datePickerLabel = dateFormatter.string(from: datePicker.date)
+        
+        self.view.endEditing(true)
+    }
 }
 
