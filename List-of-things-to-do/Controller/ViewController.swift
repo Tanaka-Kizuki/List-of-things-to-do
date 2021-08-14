@@ -113,7 +113,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     return
                 } else {
                     let id = querySnapshot?.documents.first?.documentID  // 結果のドキュメントIDをとる
-                    print(id)
                     let document = Firestore.firestore().collection("doList").document(id!) // IDと一致する書き換えできるドキュメントをとる
                     document.updateData([
                         "done": self.datePickerLabel // 行ったことあるフラグをTrueにする

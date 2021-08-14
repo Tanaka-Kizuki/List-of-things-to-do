@@ -76,7 +76,7 @@ class CafeListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     //セルをタップした時に詳細画面へ遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "goDetail", sender: nil)
+        performSegue(withIdentifier: "goDetail", sender: indexPath.row)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
