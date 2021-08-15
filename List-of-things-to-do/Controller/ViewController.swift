@@ -78,9 +78,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             if let snapShotDoc = snapShot?.documents {
                 for doc in snapShotDoc {
                     let data = doc.data()
-                    if let name = data["name"] as? String,let near = data["near"] as? String,let tag = data["tag"] as? String,let date = data["date"] as? String{
+                    if let name = data["name"] as? String,let near = data["near"] as? String,let tag = data["tag"] as? String,let date = data["date"] as? String,let createtime = data["createtime"] as? String{
                         if tag == "やりたいこと" {
-                            let listModels = ListModel(name:name,near:near,tag:tag,date: date)
+                            let listModels = ListModel(name:name,near:near,tag:tag,date: date,createtime:createtime)
                             self.listModel.append(listModels)
                         }
                     }
