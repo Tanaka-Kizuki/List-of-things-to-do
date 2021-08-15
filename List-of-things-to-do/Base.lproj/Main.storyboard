@@ -289,11 +289,22 @@
                                 <rect key="frame" x="0.0" y="603" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="＜" id="IV2-eD-rOS"/>
-                                    <barButtonItem title="＞" id="W4t-xA-mot"/>
-                                    <barButtonItem systemItem="refresh" id="xWE-h6-WNb"/>
+                                    <barButtonItem title="＜" id="IV2-eD-rOS">
+                                        <connections>
+                                            <action selector="webBack:" destination="ud5-9S-rJN" id="4sJ-vy-9gA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="refresh" id="xWE-h6-WNb">
+                                        <connections>
+                                            <action selector="reload:" destination="ud5-9S-rJN" id="1fP-Hh-DKS"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="I9y-S6-KVc"/>
-                                    <barButtonItem title="back" id="pm2-eK-yGt"/>
+                                    <barButtonItem title="back" id="pm2-eK-yGt">
+                                        <connections>
+                                            <action selector="backAction:" destination="ud5-9S-rJN" id="b0D-AP-1we"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkK-kF-bNI">
