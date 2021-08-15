@@ -114,7 +114,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let cell = textField.superview?.superview as? UITableViewCell,
-           let indexPath = tableView.indexPath(for: cell as! UITableViewCell){
+           let indexPath = tableView.indexPath(for: cell){
             let listName = listModel[indexPath.row].name
             db.collection("doList")
                 .whereField("name", isEqualTo:listName)
