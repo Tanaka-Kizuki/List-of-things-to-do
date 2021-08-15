@@ -17,6 +17,7 @@ class CreateViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var cafeButton: UIButton!
     
     var db = Firestore.firestore().collection("doList")
+    
     var tag = "やりたいこと"
     
     override func viewDidLoad() {
@@ -72,7 +73,7 @@ class CreateViewController: UIViewController,UITextFieldDelegate {
     //リストの内容をFirebaseStoreに保存して、メイン画面へ遷移
     @IBAction func save(_ sender: Any) {
         if doTextField.text != nil {
-            db.document().setData(["name":doTextField.text as Any,"near":nearTextField.text,"tag":self.tag,])
+            db.document().setData(["name":doTextField.text as Any,"near":nearTextField.text,"tag":self.tag,"date":""])
         }
         dismiss(animated: true, completion: nil)
     }

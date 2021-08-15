@@ -11,4 +11,5 @@ struct ListModel {
     let name:String
     let near:String
     let tag:String
+    let date:String
 }
