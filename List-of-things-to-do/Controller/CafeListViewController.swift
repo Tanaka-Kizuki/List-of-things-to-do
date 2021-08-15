@@ -61,9 +61,9 @@ class CafeListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             if let snapShotDoc = snapShot?.documents {
                 for doc in snapShotDoc {
                     let data = doc.data()
-                    if let name = data["name"] as? String,let near = data["near"] as? String,let tag = data["tag"] as? String {
+                    if let name = data["name"] as? String,let near = data["near"] as? String,let tag = data["tag"] as? String,let date = data["date"] as? String {
                         if tag == "カフェ" {
-                            let listModels = ListModel(name:name,near:near,tag:tag)
+                            let listModels = ListModel(name:name,near:near,tag:tag,date: date)
                             self.listModel.append(listModels)
                         }
                     }

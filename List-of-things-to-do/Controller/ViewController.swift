@@ -44,18 +44,28 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath)
+        
         tableView.rowHeight = tableView.frame.size.height / 15
         let listLabel = cell.contentView.viewWithTag(1) as! UILabel
         listLabel.numberOfLines = 0
         listLabel.text = "\(self.listModel[indexPath.row].name)"
         
-        let cellTextField = UITextField()
-        cellTextField.tag = indexPath.row
-        cellTextField.frame = CGRect(x:233, y:0, width:135, height: 38)
-        cellTextField.delegate = self
-        cell.addSubview(cellTextField)
+        let listTextField = cell.contentView.viewWithTag(2) as! UITextField
+        listTextField.delegate = self
+        listTextField.text = nil
+        listTextField.text = listModel[indexPath.row].date
+//        let cellTextField = UITextField()
+//        cellTextField.tag = indexPath.row
+//        cellTextField.frame = CGRect(x:233, y:0, width:135, height: 38)
+//        cellTextField.delegate = self
+//        cellTextField.text = nil
+//        cellTextField.text = listModel[indexPath.row].date
+//        cell.contentView.addSubview(cellTextField)
         return cell
     }
+    
+    
+    
     
     //fireStoreからデータを取得し、listModelへ値を代入
     func loadData() {
@@ -68,9 +78,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             if let snapShotDoc = snapShot?.documents {
                 for doc in snapShotDoc {
                     let data = doc.data()
-                    if let name = data["name"] as? String,let near = data["near"] as? String,let tag = data["tag"] as? String {
+                    if let name = data["name"] as? String,let near = data["near"] as? String,let tag = data["tag"] as? String,let date = data["date"] as? String{
                         if tag == "やりたいこと" {
-                            let listModels = ListModel(name:name,near:near,tag:tag)
+                            let listModels = ListModel(name:name,near:near,tag:tag,date: date)
                             self.listModel.append(listModels)
                         }
                     }
@@ -103,28 +113,31 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let listName = listModel[textField.tag].name
-        
-        var updateList = db.collection("doList")
-            .whereField("name", isEqualTo:listName)
-            .getDocuments(completion: {
-                (querySnapshot,error) in
-                if error != nil {
-                    return
-                } else {
-                    let id = querySnapshot?.documents.first?.documentID  // 結果のドキュメントIDをとる
-                    let document = Firestore.firestore().collection("doList").document(id!) // IDと一致する書き換えできるドキュメントをとる
-                    document.updateData([
-                        "done": self.datePickerLabel // 行ったことあるフラグをTrueにする
-                    ]) { err in
-                        if let err = err { // エラーハンドリング
-                            print("Error updating document: \(err)")
-                        } else { // 書き換え成功ハンドリング
-                            print("Update successfully!")
+        if let cell = textField.superview?.superview as? UITableViewCell,
+           let indexPath = tableView.indexPath(for: cell as! UITableViewCell){
+            let listName = listModel[indexPath.row].name
+            db.collection("doList")
+                .whereField("name", isEqualTo:listName)
+                .getDocuments(completion: {
+                    (querySnapshot,error) in
+                    if error != nil {
+                        return
+                    } else {
+                        let id = querySnapshot?.documents.first?.documentID  // 結果のドキュメントIDをとる1
+                        let document = Firestore.firestore().collection("doList").document(id!) // IDと一致する書き換えできるドキュメントをとる
+                        document.updateData([
+                            "date": self.datePickerLabel // 行った日付を更新
+                        ])
+                        { err in
+                            if let err = err { // エラーハンドリング
+                                print("Error updating document: \(err)")
+                            } else { // 書き換え成功ハンドリング
+                                print("Update successfully!")
+                            }
                         }
                     }
-                }
-            })
+                })
+          }
     }
     
     func datePickerlaod(textField:UITextField) {
