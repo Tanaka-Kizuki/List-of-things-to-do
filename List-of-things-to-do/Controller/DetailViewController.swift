@@ -34,7 +34,21 @@ class DetailViewController: UIViewController {
         webView.load(request as URLRequest)
     }
     
-
+    //web画面のリロード
+    @IBAction func reload(_ sender: Any) {
+        webView.reload()
+    }
+    
+    //web画面を戻る
+    @IBAction func webBack(_ sender: Any) {
+        webView.goBack()
+    }
+    
+    //画面遷移(戻る)
+    @IBAction func backAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
