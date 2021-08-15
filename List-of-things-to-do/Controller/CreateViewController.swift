@@ -72,8 +72,14 @@ class CreateViewController: UIViewController,UITextFieldDelegate {
     
     //リストの内容をFirebaseStoreに保存して、メイン画面へ遷移
     @IBAction func save(_ sender: Any) {
+        //現在日時を日本語で取得
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yMMMdHm", options: 0, locale: Locale(identifier: "ja_JP"))
+        
+        //リスト名が記入されている場合、データベースに格納
         if doTextField.text != "" {
-            db.document().setData(["name":doTextField.text as Any,"near":nearTextField.text,"tag":self.tag,"date":""])
+            db.document().setData(["name":doTextField.text as Any,"near":nearTextField.text,"tag":self.tag,"date":"","createtime":formatter.string(from: date)])
         }
         dismiss(animated: true, completion: nil)
     }
