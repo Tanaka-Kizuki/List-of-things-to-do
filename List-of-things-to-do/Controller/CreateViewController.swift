@@ -72,7 +72,7 @@ class CreateViewController: UIViewController,UITextFieldDelegate {
     
     //リストの内容をFirebaseStoreに保存して、メイン画面へ遷移
     @IBAction func save(_ sender: Any) {
-        if doTextField.text != nil {
+        if doTextField.text != "" {
             db.document().setData(["name":doTextField.text as Any,"near":nearTextField.text,"tag":self.tag,"date":""])
         }
         dismiss(animated: true, completion: nil)
